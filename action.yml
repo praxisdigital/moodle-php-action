@@ -1,0 +1,20 @@
+name: 'Setup PHP'
+description: 'Setup PHP'
+author: 'moxis'
+branding:
+  icon: 'code'
+  color: 'purple'
+inputs:
+  php-version:
+    description: 'PHP version'
+    required: true
+    default: '8.3'
+  use-mssql:
+    description: 'Use Microsoft SQL Server'
+    required: true
+    default: 'true'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  with:
+    build-args: PHP_VERSION=${{ inputs.php-version }}
